@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DiaPlanner로 관리하는 공개 이슈의 진행 상태를 볼 수 있습니다.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>공개 이슈 | DiaPlanner</title>
+  <style>
+/* Hallmark · v2.0.0 · theme: Wayfind platform (3/3) · scope: app · signature: status-aligned public issue list · material: publisher-approved text */
+/* Hallmark · pre-emit critique: P4 H5 E4 S3 R5 V4 · weakest: specificity; the index preserves DiaPlanner's actual status names. */
+:root {
+  --paper: oklch(95.5% 0.006 250);
+  --surface: oklch(99.5% 0.005 250);
+  --ink: oklch(16% 0.014 262);
+  --muted: oklch(41% 0.018 260);
+  --line: oklch(83% 0.014 250);
+  --tag: oklch(92% 0.014 250);
+  --accent: oklch(48% 0.21 264);
+  --accent-tint: oklch(93% 0.034 264);
+  --warn: oklch(38% 0.09 62);
+  --warn-tint: oklch(95% 0.054 84);
+  --complete: oklch(38% 0.08 155);
+  --complete-tint: oklch(94% 0.038 155);
+  --font: system-ui, "Malgun Gothic", sans-serif;
+  --width: 56rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}
+html, body { overflow-x: clip; }
+body { margin: 0; font: 1rem/1.6 var(--font); color: var(--ink); background: var(--paper); }
+header { background: var(--ink); color: var(--surface); }
+.frame { width: min(var(--width), calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+.wordmark { padding-block: 1.125rem; font-weight: 750; }
+main { padding-block: clamp(2rem, 6vw, 4.5rem); }
+h1, h2 { margin: 0; min-width: 0; overflow-wrap: break-word; }
+h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.2; font-weight: 750; text-wrap: balance; }
+.index, .labels { list-style: none; padding: 0; }
+.index, .empty { margin: 1.5rem 0 0; border-top: 2px solid var(--ink); background: var(--surface); }
+.issue, .empty { padding: 1.25rem var(--gutter); border-bottom: 1px solid var(--line); }
+.issue { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 0.4rem 1rem; }
+h2 { font-size: 1.125rem; line-height: 1.5; font-weight: 750; }
+.status, .labels li { padding: 0.16rem 0.55rem; color: var(--muted); background: var(--tag); font-size: 0.8125rem; }
+.status { white-space: nowrap; font-weight: 650; }
+.status[data-status="active"], .status[data-status="review"] { color: var(--accent); background: var(--accent-tint); }
+.status[data-status="blocked"], .status[data-status="held"] { color: var(--warn); background: var(--warn-tint); }
+.status[data-status="done"] { color: var(--complete); background: var(--complete-tint); }
+.summary, .labels { grid-column: 1 / -1; }
+.summary { margin: 0; max-width: 68ch; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+.labels { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.25rem 0 0; }
+.labels li { max-width: 100%; overflow-wrap: anywhere; }
+.empty { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header><div class="frame wordmark">DiaPlanner</div></header>
+  <main class="frame">
+    <h1>공개 이슈</h1>
+    <p class="empty">공개된 이슈가 없습니다.</p>
+  </main>
+</body>
+</html>

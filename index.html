@@ -141,20 +141,6 @@ summary:hover .task-title { color: var(--accent); }
             <td class="number">3</td>
             <th scope="row" class="task">
               <details>
-                <summary class="task-heading"><span class="task-title">feat(dynamic-gui): add conditional title_layers</span>
-                <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></summary>
-                <p class="summary">SigLib MR !587의 source 프로젝트 17, `feat/dynamic-gui-title-layers` 작업 트리에서 `SigGuiInventory#editTitle`과 `#editItemText` 및 관련 호출부를 정리한다.</p>
-              </details></th>
-            <td><span class="badge priority" data-priority="P3">P3</span></td>
-            <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="condition-met">조건 충족</td>
-            <td>GitLab</td>
-            <td class="due">—</td>
-          </tr>
-          <tr class="issue">
-            <td class="number">4</td>
-            <th scope="row" class="task">
-              <details>
                 <summary class="task-heading"><span class="task-title">!! retention 관련</span>
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></summary>
                 <p class="summary">제공된 리텐션 피드백을 바탕으로 측정, 신규·복귀 유저 판정, 안내 시점, 안내 이후 행동에서 빠진 요구사항을 분석한다. 현재 판단의 근거는 사용자 메모다.</p>
@@ -166,7 +152,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">5</td>
+            <td class="number">4</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">파티 시스템 + 파티 HUD</span>
@@ -180,7 +166,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">6</td>
+            <td class="number">5</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">TPA 개선</span>
@@ -194,7 +180,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">7</td>
+            <td class="number">6</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">귓속말 개선</span>
@@ -208,7 +194,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">8</td>
+            <td class="number">7</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">친구 시스템</span>
@@ -222,7 +208,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">9</td>
+            <td class="number">8</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">SigCrafting 로깅</span>
@@ -236,7 +222,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">10</td>
+            <td class="number">9</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">홈 개선</span>
@@ -250,7 +236,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">11</td>
+            <td class="number">10</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">채팅 차단 적용 범위 점검</span>
@@ -264,7 +250,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">12</td>
+            <td class="number">11</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">SigItem 아이템 업데이트: 마을(Lands) 전체 단위 1회 기회 + 쿼터 리셋</span>
@@ -278,7 +264,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">13</td>
+            <td class="number">12</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">SigCommonCore(SCC)에 SVC help 메뉴 역할 추가 (로비용)</span>
@@ -292,21 +278,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">14</td>
-            <th scope="row" class="task">
-              <details>
-                <summary class="task-heading"><span class="task-title">modifieradmin reload의 localization·modifier.yml 갱신 오류 수정</span>
-                <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span><span class="badge" style="background-color:#d96571;color:#111111">버그</span></span></summary>
-                <p class="summary">기존 SigApi 패치를 바탕으로 `ModifierController`, `CmdModifierAdmin`, `ModifierConfig`의 리로드 경로를 단순화합니다. 현재 스테이징 기준 제품 코드 3파일, 약 +7~12/-38~48줄입니다. 임시 YAML로 동작을 검증합니다.</p>
-              </details></th>
-            <td><span class="badge priority" data-priority="P3">P3</span></td>
-            <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="condition-met">조건 충족</td>
-            <td>대화</td>
-            <td class="due">—</td>
-          </tr>
-          <tr class="issue">
-            <td class="number">15</td>
+            <td class="number">13</td>
             <th scope="row" class="task"><span class="task-heading"><span class="task-title">점수제 납품 시스템 분석</span>
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
@@ -316,7 +288,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">16</td>
+            <td class="number">14</td>
             <th scope="row" class="task"><span class="task-heading"><span class="task-title">feat(help): HuskHomes 홈 목록 메뉴(svc:homes)와 홈 버튼 동작</span>
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
@@ -326,7 +298,7 @@ summary:hover .task-title { color: var(--accent); }
             <td class="due">—</td>
           </tr>
           <tr class="issue">
-            <td class="number">17</td>
+            <td class="number">15</td>
             <th scope="row" class="task">
               <details>
                 <summary class="task-heading"><span class="task-title">SigDialog 버튼 무반응 검토</span>

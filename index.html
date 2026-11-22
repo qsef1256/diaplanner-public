@@ -303,7 +303,7 @@ summary:hover .task-title { color: var(--accent); }
               <details>
                 <summary class="task-heading"><span class="task-title">SigDialog 버튼 무반응 검토</span>
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span><span class="badge" style="background-color:#d96571;color:#111111">버그</span></span></summary>
-                <p class="summary">SigLib에서 다이얼로그를 열기 전에 SigGui 화면이 사라진 뒤 서버 메뉴가 남는 경로를 조사한다. 산출물은 재현 기록과 원인별 수정 예상안이다.</p>
+                <p class="summary">SigLib의 B 수정안. SigDialog를 처음 표시할 때 같은 플레이어에게 등록된 SigGui를 기존 종료 API로 정리한다. 클릭 패킷의 namespace 처리와 메뉴가 처음 잔류하게 된 호출부는 이번 변경 범위 밖이다.</p>
               </details></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="active">진행 중</span></td>

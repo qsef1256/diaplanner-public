@@ -55,9 +55,6 @@ tbody tr:hover { background: var(--hover); }
 tbody tr:last-child > * { border-bottom: 0; }
 tr > :first-child { text-align: center; }
 .number { font-variant-numeric: tabular-nums; }
-.progress { white-space: nowrap; }
-.progress[data-progress="verified"] { color: var(--accent); }
-.progress[data-progress="verification-needed"] { color: var(--warning); }
 .condition-met { color: var(--accent); }
 .task { font-weight: 400; overflow-wrap: anywhere; }
 .task-heading { position: relative; display: block; padding-left: 1.15rem; }
@@ -91,6 +88,11 @@ summary:hover .task-title { color: var(--accent); }
 .status { display: inline-flex; align-items: center; gap: 0.3125rem; box-shadow: inset 0 0 0 1px var(--line); background: var(--panel); }
 .status::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 .status[data-status="ready"], .status[data-status="active"], .status[data-status="done"] { color: var(--accent); background: var(--accent-soft); }
+.progress-badge[data-progress="working"], .progress-badge[data-progress="verifying"] { color: var(--priority4); background: var(--priority4-bg); }
+.progress-badge[data-progress="code-ready"], .progress-badge[data-progress="result-ready"] { color: var(--priority3); background: var(--priority3-bg); }
+.progress-badge[data-progress="verification-needed"] { color: var(--warning); background: var(--warning-soft); }
+.progress-badge[data-progress="partially-verified"] { color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.progress-badge[data-progress="verified"] { color: var(--accent); background: var(--accent-soft); }
 .empty { padding: 1.25rem var(--gutter); color: var(--muted); }
   </style>
 </head>
@@ -118,7 +120,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P1">P1</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="verification-needed">검증 필요</td>
+            <td><span class="badge status progress-badge" data-progress="partially-verified">일부 검증됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>대화</td>
           </tr>
@@ -128,7 +130,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span><span class="badge" style="background-color:#d96571;color:#111111">버그</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="held">보류됨</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>사용자 보류</td>
             <td>Codex</td>
           </tr>
@@ -138,7 +140,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P4">P4</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>대화</td>
           </tr>
@@ -148,7 +150,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P2">P2</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="verification-needed">검증 필요</td>
+            <td><span class="badge status progress-badge" data-progress="partially-verified">일부 검증됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>문서</td>
           </tr>
@@ -158,7 +160,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P2">P2</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="verification-needed">검증 필요</td>
+            <td><span class="badge status progress-badge" data-progress="partially-verified">일부 검증됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>문서</td>
           </tr>
@@ -168,7 +170,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>문서</td>
           </tr>
@@ -178,7 +180,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d89b41;color:#111111">기획</span></span></span></th>
             <td><span class="badge priority" data-priority="P4">P4</span></td>
             <td><span class="badge status" data-status="draft">정리 중</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>확인 필요</td>
             <td>문서</td>
           </tr>
@@ -188,7 +190,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P4">P4</span></td>
             <td><span class="badge status" data-status="held">보류됨</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>사용자 보류</td>
             <td>문서</td>
           </tr>
@@ -198,7 +200,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d89b41;color:#111111">기획</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="held">보류됨</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>사용자 보류</td>
             <td>문서</td>
           </tr>
@@ -208,7 +210,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">연구</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="held">보류됨</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>사용자 보류</td>
             <td>문서</td>
           </tr>
@@ -218,7 +220,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="held">보류됨</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>사용자 보류</td>
             <td>문서</td>
           </tr>
@@ -228,7 +230,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="draft">정리 중</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>확인 필요</td>
             <td>문서</td>
           </tr>
@@ -238,7 +240,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="draft">정리 중</span></td>
-            <td class="progress" data-progress="waiting">진행 대기</td>
+            <td><span class="badge status progress-badge" data-progress="waiting">진행 대기</span></td>
             <td>확인 필요</td>
             <td>대화</td>
           </tr>
@@ -248,7 +250,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -258,7 +260,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#3aab86;color:#111111">코드</span><span class="badge" style="background-color:#d96571;color:#111111">버그</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td class="condition-met">조건 충족</td>
             <td>대화</td>
           </tr>
@@ -268,7 +270,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -278,7 +280,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -288,7 +290,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -298,7 +300,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="done">완료</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -308,7 +310,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="review">검토 대기</span></td>
-            <td class="progress" data-progress="verification-needed">검증 필요</td>
+            <td><span class="badge status progress-badge" data-progress="partially-verified">일부 검증됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -318,7 +320,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="draft">정리 중</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
@@ -328,7 +330,7 @@ summary:hover .task-title { color: var(--accent); }
                 <span class="labels"><span class="badge" style="background-color:#d96571;color:#111111">리뷰</span></span></span></th>
             <td><span class="badge priority" data-priority="P3">P3</span></td>
             <td><span class="badge status" data-status="draft">정리 중</span></td>
-            <td class="progress" data-progress="code-ready">코드 준비됨</td>
+            <td><span class="badge status progress-badge" data-progress="code-ready">코드 준비됨</span></td>
             <td>확인 필요</td>
             <td>GitLab</td>
           </tr>
